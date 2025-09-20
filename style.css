@@ -26,6 +26,12 @@ h2 {
     margin-bottom: 20px;
     font-size: 20px;
 }
+h3 {
+    text-align: center;
+    color: #ff69b4; /* hot pink heading */
+    margin-bottom: 20px;
+    font-size: 16px;
+}
 
 .form-group {
     display: flex;
@@ -97,3 +103,4 @@ button:hover {
         padding: 20px 15px;
     }
 }
+
