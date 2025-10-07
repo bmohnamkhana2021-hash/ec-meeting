@@ -8,8 +8,7 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>Friday meeting with Eligible Couples</h2>
-        <h3>Namkhana Block, Diamond Harbour HD</h3>
+        <h2>Friday meeting with Eligible Couples </h2>
         <form id="reportForm">
             <div class="side-by-side">
                 <div class="form-group">
@@ -24,49 +23,67 @@
 
             <div class="form-group">
                 <label for="reportingUnit">Reporting Unit:</label>
-                <select id="reportingUnit" name="reportingUnit" required>
+                <select id="reportingUnit" name="reportingUnit">
                     <option value="">Select Unit</option>                   
                 </select>
             </div>
-
+<fieldset>
+    <legend>Mobilization by ASHA</legend>
             <div class="side-by-side">
                 <div class="form-group">
                     <label for="input1">No of EC mobilised by ASHA:</label>
-                    <input type="text" id="totalEC" name="TotalEC" required>
+                    <input type="number" id="totalEC" name="TotalEC" required>
                 </div>
                 <div class="form-group">
                     <label for="input2">No of Teenage EC mobilised by ASHA:</label>
-                    <input type="text" id="teenEC" name="teenEC" required>
+                    <input type="number" id="teenEC" name="teenEC" required>
+                </div>
+            </div>
+            </fieldset>
+            <fieldset>
+                <legend>Family Planning Services</legend>
+             <div class="side-by-side">
+                <div class="form-group">
+                    <label for="mini">No. of Mini Lap:</label>
+                    <input type="number" id="mini" name="mini" required>
+                </div>
+                <div class="form-group">
+                    <label for="nsv">No. of NSV:</label>
+                    <input type="number" id="nsv" name="nsv" required>
+                </div>
+                <div class="form-group">
+                    <label for="iucd">No. of IUCD :</label>
+                    <input type="number" id="iucd" name="iucd" required>
                 </div>
             </div>
 
             <div class="side-by-side">
                 <div class="form-group">
                     <label for="input3">No. of Antara used:</label>
-                    <input type="text" id="antara" name="antara" required>
+                    <input type="number" id="antara" name="antara" required>
                 </div>
                 <div class="form-group">
                     <label for="input4">No. of Condom distributed:</label>
-                    <input type="text" id="cc" name="cc" required>
+                    <input type="number" id="cc" name="cc" required>
                 </div>
             </div>
 
             <div class="side-by-side">
                 <div class="form-group">
                     <label for="input5">No. of OC Pills distributed:</label>
-                    <input type="text" id="op" name="op" required>
+                    <input type="number" id="op" name="op" required>
                 </div>
                 <div class="form-group">
                     <label for="input6">No. of EC Pills distributed:</label>
-                    <input type="text" id="ec" name="ec" required>
-                </div>
-            </div>
+                    <input type="number" id="ec" name="ec" required>
+                </div>         
 
             <div class="form-group">
                 <label for="input7">No. of Chhaya distributed:</label>
-                <input type="text" id="chhaya" name="chhaya" required>
+                <input type="number" id="chhaya" name="chhaya" required>
             </div>
-
+            </div>
+</fieldset>
             <div class="form-group">
                 <label>Matrima Entry (Y/N):</label>
                 <div class="radio-group">
@@ -76,10 +93,9 @@
             </div>
 
             <button type="submit">Submit</button>
+            <footer>@developed by Arthita Roy, EA, Namkhana BPMU</footer>
         </form>
     </div>
     <script src="code.js"></script>    
 </body>
 </html>
-
-
