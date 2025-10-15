@@ -101,6 +101,7 @@ fieldset{
     margin-top: 10px;
 }
 legend{
+    margin-top: 10px;
     font-weight: bold;
     color: #ff69b4;
 }
@@ -110,5 +111,6 @@ footer{
     color: rgb(197, 187, 175);
     
 }
+
 
 
