@@ -84,10 +84,10 @@ button:hover {
 }
 
 /* Responsive Styles for Mobile */
-@media (max-width: 500px) {
+/*@media (max-width: 500px) {
     .side-by-side {
-        flex-direction: column; /* stack inputs vertically */
-    }
+        flex-direction: column; 
+    } */
 
     h2 {
         font-size: 18px;
@@ -110,3 +110,4 @@ footer{
     color: rgb(197, 187, 175);
     
 }
+
