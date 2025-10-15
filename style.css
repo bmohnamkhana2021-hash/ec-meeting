@@ -98,7 +98,7 @@ button:hover {
     }
 }
 fieldset{
-    margin-top: 7px;
+    margin-top: 10px;
 }
 legend{
     font-weight: bold;
@@ -110,4 +110,5 @@ footer{
     color: rgb(197, 187, 175);
     
 }
+
 
