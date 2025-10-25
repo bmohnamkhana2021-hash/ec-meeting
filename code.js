@@ -1,5 +1,4 @@
- 
- //value of month-auto populated
+//value of month-auto populated
  function setMonth() {
             const dateInput = document.getElementById('date').value;
             if (dateInput) {
@@ -40,3 +39,5 @@ document.getElementById("reportForm").addEventListener("submit", function(event)
     alert("✅ Submitted successfully!");
     event.target.reset();
 });
+ 
+
