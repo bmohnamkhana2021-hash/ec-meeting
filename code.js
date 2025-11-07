@@ -1,4 +1,5 @@
-//value of month-auto populated
+ 
+ //value of month-auto populated
  function setMonth() {
             const dateInput = document.getElementById('date').value;
             if (dateInput) {
@@ -18,26 +19,60 @@ const myDropdown=document.getElementById("reportingUnit");
         });
 
 //Teenage EC validation
-document.getElementById("reportForm").addEventListener("submit", function(event) {
+document.getElementById("reportForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
-    let totalEC = parseInt(document.getElementById("totalEC").value) || 0;
-    let teenEC = parseInt(document.getElementById("teenEC").value) || 0;
+    const totalEC = parseInt(document.getElementById("totalEC").value) || 0;
+    const teenEC = parseInt(document.getElementById("teenEC").value) || 0;
 
+    // Validation
     if (teenEC > totalEC) {
         alert("⚠️ Teenage EC কখনোই Total ECর চেয়ে বেশী হতে পারে না। রিপোর্ট আবার চেক করুন।");
         return;
     }
 
+    // Show instant feedback
+    const feedback = document.getElementById("feedback");
+    if (feedback) {
+        feedback.textContent = "⏳ Submitting your report...";
+        feedback.style.color = "blue";
+    } else {
+        alert("⏳ Submitting your report...");
+    }
+
     const formData = new FormData(event.target);
     const url = "https://script.google.com/macros/s/AKfycbxD30udCtrfUtvvQBOVCADBQLAFiD-0LaC2GvRSLshLFEBiVh97YHtFnSRCm2HenTeG/exec";
 
-    // sendBeacon sends data in background and does not block
-    const blob = new Blob([new URLSearchParams(formData)], { type: "application/x-www-form-urlencoded" });
-    navigator.sendBeacon(url, blob);
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            body: formData,
+        });
 
-    alert("✅ Submitted successfully!");
-    event.target.reset();
+        if (response.ok) {
+            if (feedback) {
+                feedback.textContent = "✅ Submitted successfully!";
+                feedback.style.color = "green";
+                 setTimeout(() => {
+                    feedback.textContent = "";
+                    feedback.style.display = "none";
+                }, 3000);                
+            } 
+            event.target.reset();
+        } else {
+            throw new Error("Server responded with an error");
+        }
+    } catch (error) {
+        if (feedback) {
+            feedback.textContent = "❌ Submission failed! Please try again.";
+            feedback.style.color = "red";
+        } else {
+            alert("❌ Submission failed! Please try again.");
+        }
+        console.error("Submission error:", error);
+    }
 });
- 
+
+
+
 
