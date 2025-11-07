@@ -110,3 +110,48 @@ hr{
     text-align: center;
     font-size: 20px;
 }
+
+/* Centered popup message styling */
+.popup-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    background: #fff;
+    color: #333;
+    padding: 16px 24px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    font-size: 16px;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 9999;
+    text-align: center;
+}
+
+/* Visible state */
+.popup-message.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+/* Type-specific colors */
+.popup-message.info {
+    border-left: 5px solid #007bff;
+}
+
+.popup-message.success {
+    border-left: 5px solid #28a745;
+}
+
+.popup-message.error {
+    border-left: 5px solid #dc3545;
+}
+
+.popup-message.warning {
+    border-left: 5px solid #ffc107;
+}
+
+
+
