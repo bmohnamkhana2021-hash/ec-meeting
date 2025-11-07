@@ -117,8 +117,8 @@ hr{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) scale(0.9);
-    background: #fff;
-    color: #333;
+    background: #0f807c;
+    color: #ffffff;
     padding: 16px 24px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
@@ -152,6 +152,7 @@ hr{
 .popup-message.warning {
     border-left: 5px solid #ffc107;
 }
+
 
 
 
