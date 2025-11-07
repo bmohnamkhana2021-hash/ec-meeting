@@ -19,6 +19,7 @@ const myDropdown=document.getElementById("reportingUnit");
         });
 
 //Teenage EC validation
+
 document.getElementById("reportForm").addEventListener("submit", async function(event) {
     event.preventDefault();
 
@@ -27,18 +28,11 @@ document.getElementById("reportForm").addEventListener("submit", async function(
 
     // Validation
     if (teenEC > totalEC) {
-        alert("⚠️ Teenage EC কখনোই Total ECর চেয়ে বেশী হতে পারে না। রিপোর্ট আবার চেক করুন।");
+        showMessage("⚠️ Teenage EC কখনোই Total ECর চেয়ে বেশী হতে পারে না। রিপোর্ট আবার চেক করুন।", "warning");
         return;
     }
 
-    // Show instant feedback
-    const feedback = document.getElementById("feedback");
-    if (feedback) {
-        feedback.textContent = "⏳ Submitting your report. please wait..";
-        feedback.style.color = "blue";
-    } else {
-        alert("⏳ Submitting your report...");
-    }
+    showMessage("⏳ Submitting your report...", "info");
 
     const formData = new FormData(event.target);
     const url = "https://script.google.com/macros/s/AKfycbxD30udCtrfUtvvQBOVCADBQLAFiD-0LaC2GvRSLshLFEBiVh97YHtFnSRCm2HenTeG/exec";
@@ -50,28 +44,36 @@ document.getElementById("reportForm").addEventListener("submit", async function(
         });
 
         if (response.ok) {
-            if (feedback) {
-                feedback.textContent = "✅ Submitted your report successfully!";
-                feedback.style.color = "green";
-                 setTimeout(() => {
-                    feedback.textContent = "";
-                    feedback.style.display = "none";
-                }, 3000);                
-            } 
+            showMessage("✅ Submitted successfully!", "success");
             event.target.reset();
         } else {
             throw new Error("Server responded with an error");
         }
     } catch (error) {
-        if (feedback) {
-            feedback.textContent = "❌ Submission failed! Please try again.";
-            feedback.style.color = "red";
-        } else {
-            alert("❌ Submission failed! Please try again.");
-        }
+        showMessage("❌ Submission failed! Please try again.", "error");
         console.error("Submission error:", error);
     }
 });
+
+// ✅ Modern centered message popup
+function showMessage(message, type = "info") {
+    let msgBox = document.createElement("div");
+    msgBox.textContent = message;
+    msgBox.className = `popup-message ${type}`;
+
+    document.body.appendChild(msgBox);
+
+    // Fade-in
+    setTimeout(() => {
+        msgBox.classList.add("show");
+    }, 10);
+
+    // Auto remove after 3s
+    setTimeout(() => {
+        msgBox.classList.remove("show");
+        setTimeout(() => msgBox.remove(), 500);
+    }, 3000);
+}
 
 
 
