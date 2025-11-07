@@ -34,7 +34,7 @@ document.getElementById("reportForm").addEventListener("submit", async function(
     // Show instant feedback
     const feedback = document.getElementById("feedback");
     if (feedback) {
-        feedback.textContent = "⏳ Submitting your report...";
+        feedback.textContent = "⏳ Submitting your report. please wait..";
         feedback.style.color = "blue";
     } else {
         alert("⏳ Submitting your report...");
@@ -51,7 +51,7 @@ document.getElementById("reportForm").addEventListener("submit", async function(
 
         if (response.ok) {
             if (feedback) {
-                feedback.textContent = "✅ Submitted successfully!";
+                feedback.textContent = "✅ Submitted your report successfully!";
                 feedback.style.color = "green";
                  setTimeout(() => {
                     feedback.textContent = "";
@@ -72,6 +72,7 @@ document.getElementById("reportForm").addEventListener("submit", async function(
         console.error("Submission error:", error);
     }
 });
+
 
 
 
