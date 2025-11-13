@@ -55,26 +55,35 @@ document.getElementById("reportForm").addEventListener("submit", async function(
         console.error("Submission error:", error);
     }
 });
-
-// ✅ Modern centered message popup
+// ✅ Modern centered message popup with overlay
 function showMessage(message, type = "info") {
+    // Create overlay
+    let overlay = document.createElement("div");
+    overlay.className = "popup-overlay";
+
+    // Create message box
     let msgBox = document.createElement("div");
     msgBox.textContent = message;
     msgBox.className = `popup-message ${type}`;
 
-    document.body.appendChild(msgBox);
+    // Add overlay and message box to body
+    overlay.appendChild(msgBox);
+    document.body.appendChild(overlay);
 
     // Fade-in
     setTimeout(() => {
+        overlay.classList.add("show");
         msgBox.classList.add("show");
     }, 10);
 
     // Auto remove after 3s
     setTimeout(() => {
         msgBox.classList.remove("show");
-        setTimeout(() => msgBox.remove(), 500);
+        overlay.classList.remove("show");
+        setTimeout(() => overlay.remove(), 500);
     }, 3000);
 }
+
 
 
 
